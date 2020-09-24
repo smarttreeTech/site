@@ -2561,7 +2561,6 @@
 		color: #aaa;
 		position: relative;
 		margin: 0 0 1.5em 0;
-		text-transform: uppercase;
 	}
 
 	header h2 + p {
@@ -2810,6 +2809,17 @@
 			padding: 0;
 			position: absolute;
 			top: 0;
+		}
+
+		#header h1 a.logo-box {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		#header h1 a.logo-box strong {
+			color: white;
+			margin: 0 5px;
 		}
 
 		#header nav {
