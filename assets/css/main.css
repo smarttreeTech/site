@@ -1991,6 +1991,7 @@
 			float: left;
 			margin-bottom: 3em;
 			width: 50%;
+			max-height: 10em;
 		}
 
 			.feature-grid .feature .content {
