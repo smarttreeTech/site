@@ -10,6 +10,13 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<!-- mapbox library -->
+		<link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+		<style>
+			#map {
+				width: 80em !important;
+			}
+		</style>
 	</head>
 	<body>
 
@@ -40,8 +47,7 @@
 						<p>649 Manawagonish Rd, Saint John, NB E2M3W4</p>
 						<p>+1 506 897 3820</p>
 					</header>
-
-					<a href="#" class="image fit"><img src="images/pic01.jpg" alt="" /></a>
+					<div id='map' style='width: 400px; height: 300px;'></div>
 					<p>We launched our business in Saint John, NB, since September 2020.</p>
 				</div>
 			</section>
@@ -67,6 +73,29 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<!-- mapbox library -->
+			<script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+			<script>
+				mapboxgl.accessToken = 'pk.eyJ1Ijoid2FuZ2RpYW5kaWFuIiwiYSI6ImNqb3JyeWV4czAyeWwzcW85enRyZmp5dm8ifQ.UIVacLewjXi3XRL2XvlsgA';
+				// initial map
+				var map = new mapboxgl.Map({
+					container: 'map',
+					style: 'mapbox://styles/mapbox/streets-v11',
+					center: [-66.1029959, 45.2564116], // starting position [lng, lat]
+					zoom: 13 // starting zoom
+				});
+				// map scale
+				var scale = new mapboxgl.ScaleControl({
+					maxWidth: 100,
+					unit: 'imperial'
+				});
+				map.addControl(scale);
 
+				scale.setUnit('metric');
+				// add maker to map
+				var marker = new mapboxgl.Marker()
+  					.setLngLat([-66.1008072, 45.2564078])
+  					.addTo(map);
+			</script>
 	</body>
 </html>
